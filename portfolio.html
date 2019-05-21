@@ -11,38 +11,46 @@
         <a href="about_me.html" class="button">About Me </a>
         <a href="career.html" class="button">Career</a>
         <h1>This is my Portfolio Page!</h1>
-        <img src="images/portfolio.jpg" height="150">
-        <br>
-        <iframe src="https://appetize.io/embed/q74pdw2rhpp63xygk8k3ww65z4?device=iphone8&scale=100&autoplay=false&orientation=portrait&deviceColor=black" width="400px" height="800px" frameborder="0" scrolling="no"></iframe>
-        <br><a target="_blank" href="https://scratch.mit.edu">
-            <img src="images/scratch.jpg" height="100">
-        <iframe width="560" height="315" src="https://www.youtube.com/embed/3-VXJXDJEmE" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-        </a></center>
-    <body>
-<center> 
+        <center> 
+        <img src="images/portfolio.jpg" height="150"><br>
+        <a href="javascript:switchTab('tb_1', 'content_1');" id="tb_1" class="tabmenu active"><button>Computer Science</button></a>
+        <a href="javascript:switchTab('tb_2', 'content_2');" id="tb_2" class="tabmenu"><button>English</button></a>
+        </center>
+            
+        <div id="content_1" class="tabcontent"> 
+    
+            <br>
+            <iframe src="https://appetize.io/embed/q74pdw2rhpp63xygk8k3ww65z4?device=iphone8&scale=100&autoplay=false&orientation=portrait&deviceColor=black" width="400px" height="800px" frameborder="0" scrolling="no"></iframe>
+            <br><a target="_blank" href="https://scratch.mit.edu">
+                <img src="images/scratch.jpg" height="100">
+        </div>
+        
+        <div id="content_2" class="tabcontent" style="display:none;">
 
-<a href="javascript:switchTab('tb_1', 'content_1');" id="tb_1" class="tabmenu active"><button>Home</button></a>
-<a href="javascript:switchTab('tb_2', 'content_2');" id="tb_2" class="tabmenu"><button>About Me</button></a>
-<a href="javascript:switchTab('tb_3', 'content_3');" id="tb_3" class="tabmenu"><button>Portfolio</button></a>
-<a href="javascript:switchTab('tb_4', 'content_4');" id="tb_4" class="tabmenu"><button>Career</button></a>
+            <br>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/3-VXJXDJEmE" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </a></center>
+        </div>
+    </body>
+    <script>
+function switchTab(tab_id, tab_content) {
+// first of all we get all tab content blocks (I think the best way to get them by class names)
+var x = document.getElementsByClassName("tabcontent");
+var i;
+for (i = 0; i < x.length; i++) {
+x[i].style.display = 'none'; // hide all tab content
+}
+document.getElementById(tab_content).style.display = 'block'; // display the content of the tab we need
 
-</center>
+// now we get all tab menu items by class names (use the next code only if you need to highlight current tab)
+var x = document.getElementsByClassName("tabmenu");
+var i;
+for (i = 0; i < x.length; i++) {
+x[i].className = 'tabmenu'; 
+}
+document.getElementById(tab_id).className = 'tm_active';
+}
+</script>
 
-<div id="content_1" class="tabcontent"> 
-<p>Your first content</p>
-<iframe src="https://appetize.io/embed/gpk6tfwavg6hpev0cmuw8au8um?device=nexus7&scale=45&autoplay=false&orientation=portrait&deviceColor=black" width="360px" height="600px" frameborder="0" scrolling="no"></iframe>
-</div> 
-<div id="content_2" class="tabcontent" style="display:none;">
-<p>The KATHERINE'S WORLD is based off on  the philosophy that you cannot change your past , but your future is in your grasp .</p>
-<button>Download Resume</button>
-</div>
-<div id="content_3" class="tabcontent" style="display:none;">
-<p>Your 3rd content</p>
-<iframe width="560" height="315" src="https://www.youtube.com/embed/nGeKSiCQkPw" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-</div>
-<div id="content_4" class="tabcontent" style="display:none;">
-<p>Your 4th content</p></p>
-<iframe src="https://jamesbmadden.github.io/scratch-silicon/#244595740" width="400px" height="400px" allowFullscreen></iframe>
-</div>
-</body>
+
 </html>
